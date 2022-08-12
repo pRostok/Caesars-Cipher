@@ -26,10 +26,6 @@ output.textContent = rot13({
 });
 
 
-
-
-
-
 function rot13(str) {
 
     let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toUpperCase(),
