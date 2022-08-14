@@ -14,7 +14,7 @@ message.addEventListener('keyup', function ()  {
         
         output.textContent = rot13({
             
-            msg: itsValue,
+            msg: this.Value,
             shift: shift.value
         });
     });
@@ -31,6 +31,7 @@ shift.addEventListener("keyup", function () {
 });
 
 output.textContent = rot13({
+    
     msg: message.value,
     shift: shift.value
 });
