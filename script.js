@@ -4,16 +4,26 @@ const output = document.getElementById('output')
 
 
 
-message.addEventListener("input", () => {
-    let itsValue = this.value;
-    output.textContent = rot13({
-        msg: itsValue,
-        shift: shift.value
+message.addEventListener('keyup', function ()  {
+    let dont = /[0-9]/g;
+    let itsValue = this.value
+    this.value = this.value.replace(dont, '')
+
+    message.addEventListener("input", () => {
+        let itsValue = this.value;
+        
+        output.textContent = rot13({
+            
+            msg: itsValue,
+            shift: shift.value
+        });
     });
-});
+
+})
 
 shift.addEventListener("keyup", function () {
     let itsValue = this.value;
+    
     output.textContent = rot13({
         msg: message.value,
         shift: itsValue
@@ -34,14 +44,16 @@ function rot13(str) {
         output = "",
         upperString,
 
-        otherCharacters = '-=~\"\'#$%&*^:<>?/!{(|)}.1234567890\, '
-
+        otherCharacters = '-=~\"\'#$%&*^:<>?/!{(|)}.1234567890\,'
+    
+        
     if (typeof str === "object") {
         shiftAmount = str.shift;
         upperString = str.msg.toUpperCase();
     } else {
         return;
     }
+
 
     if (typeof upperString === "string" || typeof (upperString + "") === "string") {
         shiftedAlphabet = alphabet.slice(shiftAmount);
