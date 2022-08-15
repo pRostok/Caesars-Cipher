@@ -24,8 +24,7 @@ output.textContent = rot13({
   shift: shift.value,
 });
 
-function rot13(str) {
-  console.log(`TRIGGER`);
+function rot13(str) {  
   let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.toUpperCase(),
     shiftAmount,
     shiftedAlphabet = '',
@@ -33,8 +32,7 @@ function rot13(str) {
     upperString,
     otherCharacters = '-=~"\'#$%&*^:<>?/!{(|)}.1234567890,';
 
-  if (typeof str === 'object') {
-    console.log(str);
+  if (typeof str === 'object') {    
     shiftAmount = str.shift;
     upperString = str.msg.toUpperCase();
   } else {
